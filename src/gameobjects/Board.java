@@ -46,11 +46,7 @@ public final class Board {
         for (int i = 0; i < SudokuMain.GRID_SIZE; i++) {
             for (int j = 0; j < SudokuMain.GRID_SIZE; j++) {
                 tileGrid[i][j].setTileValue(currentPuzzle.initial[i][j]);
-                if (!"-".equals(tileGrid[i][j].getTileValue())) {
-                    tileGrid[i][j].getTileButton().setEnabled(false);
-                } else {
-                    tileGrid[i][j].getTileButton().setEnabled(true);
-                }
+                tileGrid[i][j].getTileButton().setEnabled("-".equals(tileGrid[i][j].getTileValue()));
             }
         }
     }

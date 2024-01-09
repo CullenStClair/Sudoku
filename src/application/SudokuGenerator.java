@@ -104,7 +104,7 @@ public final class SudokuGenerator {
                             String[][] subgrid = getSubSquare(grid, row, col);
 
                             // merge subgrid into single array
-                            List<String> combined = new ArrayList<String>(Arrays.asList(subgrid[0]));
+                            List<String> combined = new ArrayList<>(Arrays.asList(subgrid[0]));
                             combined.addAll(Arrays.asList(subgrid[1]));
                             combined.addAll(Arrays.asList(subgrid[2]));
                             String[] merged = Arrays.copyOf(combined.toArray(), combined.size(), String[].class);

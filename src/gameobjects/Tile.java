@@ -4,7 +4,6 @@ import application.SudokuMain;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
 /**
  * Represents a tile on the board.
@@ -25,17 +24,14 @@ public final class Tile {
         tileButton.setBackground(Color.WHITE);
         tileButton.setFont(new Font("Calibri", Font.PLAIN, 60));
         tileButton.setEnabled(false);
-        tileButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        tileButton.addActionListener(e -> {
 
-                // prompt user for tile value on click
-                String newValue = SudokuMain.application.getNewSquareValue();
-                if (newValue == null) {
-                    return;
-                }
-                setTileValue(newValue);
+            // prompt user for tile value on click
+            String newValue = SudokuMain.application.getNewSquareValue();
+            if (newValue == null) {
+                return;
             }
+            setTileValue(newValue);
         });
 
     }
