@@ -1,6 +1,6 @@
-package gameobjects;
+package main.java.gameobjects;
 
-import application.SudokuMain;
+import main.java.app.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,14 +20,14 @@ public final class Tile {
 
         // create tile button
         tileButton = new JButton();
-        tileButton.setIcon(SudokuMain.imageAssets.blank);
+        tileButton.setIcon(Main.imageAssets.blank);
         tileButton.setBackground(Color.WHITE);
         tileButton.setFont(new Font("Calibri", Font.PLAIN, 60));
         tileButton.setEnabled(false);
         tileButton.addActionListener(e -> {
 
             // prompt user for tile value on click
-            String newValue = SudokuMain.application.getNewSquareValue();
+            String newValue = Main.application.getNewSquareValue();
             if (newValue == null) {
                 return;
             }
@@ -63,34 +63,34 @@ public final class Tile {
 
         switch (val) {
             case "-":
-                tileButton.setIcon(SudokuMain.imageAssets.blank);
+                tileButton.setIcon(Main.imageAssets.blank);
                 break;
             case "1":
-                tileButton.setIcon(SudokuMain.imageAssets.img1);
+                tileButton.setIcon(Main.imageAssets.img1);
                 break;
             case "2":
-                tileButton.setIcon(SudokuMain.imageAssets.img2);
+                tileButton.setIcon(Main.imageAssets.img2);
                 break;
             case "3":
-                tileButton.setIcon(SudokuMain.imageAssets.img3);
+                tileButton.setIcon(Main.imageAssets.img3);
                 break;
             case "4":
-                tileButton.setIcon(SudokuMain.imageAssets.img4);
+                tileButton.setIcon(Main.imageAssets.img4);
                 break;
             case "5":
-                tileButton.setIcon(SudokuMain.imageAssets.img5);
+                tileButton.setIcon(Main.imageAssets.img5);
                 break;
             case "6":
-                tileButton.setIcon(SudokuMain.imageAssets.img6);
+                tileButton.setIcon(Main.imageAssets.img6);
                 break;
             case "7":
-                tileButton.setIcon(SudokuMain.imageAssets.img7);
+                tileButton.setIcon(Main.imageAssets.img7);
                 break;
             case "8":
-                tileButton.setIcon(SudokuMain.imageAssets.img8);
+                tileButton.setIcon(Main.imageAssets.img8);
                 break;
             case "9":
-                tileButton.setIcon(SudokuMain.imageAssets.img9);
+                tileButton.setIcon(Main.imageAssets.img9);
                 break;
         }
         value = val;

@@ -1,4 +1,4 @@
-package gameobjects;
+package main.java.gameobjects;
 
 /**
  * Represents a sudoku puzzle.

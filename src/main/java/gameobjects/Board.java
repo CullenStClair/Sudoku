@@ -1,7 +1,7 @@
-package gameobjects;
+package main.java.gameobjects;
 
-import application.SudokuGenerator;
-import application.SudokuMain;
+import main.java.app.Main;
+import main.java.app.SudokuGenerator;
 
 import java.util.Arrays;
 
@@ -23,8 +23,8 @@ public final class Board {
     public Board() {
 
         // initialize tile array
-        for (int i = 0; i < SudokuMain.GRID_SIZE; i++) {
-            for (int j = 0; j < SudokuMain.GRID_SIZE; j++) {
+        for (int i = 0; i < Main.GRID_SIZE; i++) {
+            for (int j = 0; j < Main.GRID_SIZE; j++) {
                 tileGrid[i][j] = new Tile();
             }
         }
@@ -36,15 +36,15 @@ public final class Board {
     public void initializeBoard() {
 
         // get desired difficulty from user
-        int difficulty = SudokuMain.application.getNewPuzzleDifficulty();
+        int difficulty = Main.application.getNewPuzzleDifficulty();
         if (difficulty == 0) {
             return;
         }
 
         // clear previous board, generate and display new puzzle
         currentPuzzle = SudokuGenerator.generateNew(difficulty);
-        for (int i = 0; i < SudokuMain.GRID_SIZE; i++) {
-            for (int j = 0; j < SudokuMain.GRID_SIZE; j++) {
+        for (int i = 0; i < Main.GRID_SIZE; i++) {
+            for (int j = 0; j < Main.GRID_SIZE; j++) {
                 tileGrid[i][j].setTileValue(currentPuzzle.initial[i][j]);
                 tileGrid[i][j].getTileButton().setEnabled("-".equals(tileGrid[i][j].getTileValue()));
             }
@@ -70,20 +70,20 @@ public final class Board {
             return;
         }
 
-        String[][] gridValues = new String[SudokuMain.GRID_SIZE][SudokuMain.GRID_SIZE];
+        String[][] gridValues = new String[Main.GRID_SIZE][Main.GRID_SIZE];
 
         // copy values from tile grid to string grid
-        for (int i = 0; i < SudokuMain.GRID_SIZE; i++) {
-            for (int j = 0; j < SudokuMain.GRID_SIZE; j++) {
+        for (int i = 0; i < Main.GRID_SIZE; i++) {
+            for (int j = 0; j < Main.GRID_SIZE; j++) {
                 gridValues[i][j] = tileGrid[i][j].getTileValue();
             }
         }
 
         // compare the arrays
         if (Arrays.deepEquals(gridValues, currentPuzzle.solution)) {
-            SudokuMain.application.alertSolved();
+            Main.application.alertSolved();
         } else {
-            SudokuMain.application.alertUnsolved();
+            Main.application.alertUnsolved();
         }
     }
 
@@ -98,8 +98,8 @@ public final class Board {
         }
 
         // loop over all tiles
-        for (int i = 0; i < SudokuMain.GRID_SIZE; i++) {
-            for (int j = 0; j < SudokuMain.GRID_SIZE; j++) {
+        for (int i = 0; i < Main.GRID_SIZE; i++) {
+            for (int j = 0; j < Main.GRID_SIZE; j++) {
                 // update board
                 tileGrid[i][j].setTileValue(currentPuzzle.solution[i][j]);
                 tileGrid[i][j].getTileButton().setEnabled(false);

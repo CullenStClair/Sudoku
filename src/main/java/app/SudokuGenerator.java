@@ -1,7 +1,7 @@
-package application;
+package main.java.app;
 
-import gameobjects.Board;
-import gameobjects.SudokuPuzzle;
+import main.java.gameobjects.Board;
+import main.java.gameobjects.SudokuPuzzle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -213,7 +213,7 @@ public final class SudokuGenerator {
                 break;
             // hard
             case 3:
-                tries = 18;
+                tries = 20;
                 break;
             default:
                 return;
