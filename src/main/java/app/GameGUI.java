@@ -10,10 +10,11 @@ import java.awt.*;
  */
 public final class GameGUI {
 
+    private static GameGUI instance = null;
     private final JFrame gameFrame;
     private final static int SIDE_LENGTH = 900;
 
-    public GameGUI() {
+    private GameGUI() {
 
         // create main window
         gameFrame = new JFrame("Sudoku");
@@ -34,6 +35,13 @@ public final class GameGUI {
         // display the window
         gameFrame.setVisible(true);
 
+    }
+
+    public static GameGUI getInstance() {
+        if (instance == null) {
+            instance = new GameGUI();
+        }
+        return instance;
     }
 
     /**
@@ -67,7 +75,7 @@ public final class GameGUI {
 
         // "about" button
         final JMenuItem fileMenuItemAbout = new JMenuItem("About");
-        fileMenuItemAbout.addActionListener(e -> JOptionPane.showMessageDialog(Main.application.gameFrame,
+        fileMenuItemAbout.addActionListener(e -> JOptionPane.showMessageDialog(getInstance().gameFrame,
                 "This main.java.application was made by Cullen St. Clair.\nSudoku is a simple game, in which the objective is to fill the entire 9x9 grid with the numbers 1-9.\nThe rules are that no number may be repeated within a row or column, or within a sub-grid of 3x3 squares.\nThis program generates new puzzles automatically.\nThere are 3 difficulty levels to chose from which determine how many starting squares are filled in for you.\nHave fun!",
                 "About Sudoku", JOptionPane.PLAIN_MESSAGE));
         fileMenu.add(fileMenuItemAbout);

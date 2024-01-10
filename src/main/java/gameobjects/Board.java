@@ -1,5 +1,6 @@
 package main.java.gameobjects;
 
+import main.java.app.GameGUI;
 import main.java.app.Main;
 import main.java.app.SudokuGenerator;
 
@@ -36,7 +37,7 @@ public final class Board {
     public void initializeBoard() {
 
         // get desired difficulty from user
-        int difficulty = Main.application.getNewPuzzleDifficulty();
+        int difficulty = GameGUI.getInstance().getNewPuzzleDifficulty();
         if (difficulty == 0) {
             return;
         }
@@ -53,15 +54,13 @@ public final class Board {
 
     /**
      * Get the current tile board.
-     *
-     * @return
      */
     public Tile[][] getCurrentTileBoard() {
         return tileGrid;
     }
 
     /**
-     * Check if the current puzzle has been solved.
+     * Check if the current puzzle has been solved and display a message.
      */
     public void checkSolution() {
 
@@ -81,9 +80,9 @@ public final class Board {
 
         // compare the arrays
         if (Arrays.deepEquals(gridValues, currentPuzzle.solution)) {
-            Main.application.alertSolved();
+            GameGUI.getInstance().alertSolved();
         } else {
-            Main.application.alertUnsolved();
+            GameGUI.getInstance().alertUnsolved();
         }
     }
 

@@ -1,5 +1,6 @@
 package main.java.gameobjects;
 
+import main.java.app.GameGUI;
 import main.java.app.Main;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ public final class Tile {
     private String value = "-";
 
     public Tile() {
-
+        
         // create tile button
         tileButton = new JButton();
         tileButton.setIcon(Main.imageAssets.blank);
@@ -27,7 +28,7 @@ public final class Tile {
         tileButton.addActionListener(e -> {
 
             // prompt user for tile value on click
-            String newValue = Main.application.getNewSquareValue();
+            String newValue = GameGUI.getInstance().getNewSquareValue();
             if (newValue == null) {
                 return;
             }
