@@ -8,9 +8,9 @@ import java.awt.*;
  *
  * @author Cullen St. Clair
  */
-public final class GameGUI {
+public class GameGUI {
 
-    private static GameGUI instance = null;
+    private static GameGUI instance;
     private final JFrame gameFrame;
     private final static int SIDE_LENGTH = 900;
 
@@ -21,7 +21,7 @@ public final class GameGUI {
         gameFrame.setSize(SIDE_LENGTH, SIDE_LENGTH);
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameFrame.setResizable(false);
-        gameFrame.setContentPane(new JLabel(Main.imageAssets.background));
+        gameFrame.setContentPane(new JLabel(Assets.getInstance().getIcon("background")));
 
         // add menu bar and items
         final JMenuBar menuBar = new JMenuBar();
@@ -51,36 +51,36 @@ public final class GameGUI {
      */
     private JMenu createFileMenu() {
 
-        final JMenu fileMenu = new JMenu("File");
+        final JMenu mainMenu = new JMenu("Menu");
 
         // "exit" button
         final JMenuItem fileMenuItemExit = new JMenuItem("Exit");
         fileMenuItemExit.addActionListener(e -> System.exit(0));
-        fileMenu.add(fileMenuItemExit);
+        mainMenu.add(fileMenuItemExit);
 
         // "generate" button
         final JMenuItem fileMenuItemGenerate = new JMenuItem("Generate Puzzle");
         fileMenuItemGenerate.addActionListener(e -> Main.gameBoard.initializeBoard());
-        fileMenu.add(fileMenuItemGenerate);
+        mainMenu.add(fileMenuItemGenerate);
 
         // "verify solution" button
         final JMenuItem fileMenuItemCheck = new JMenuItem("Verify Solution");
         fileMenuItemCheck.addActionListener(e -> Main.gameBoard.checkSolution());
-        fileMenu.add(fileMenuItemCheck);
+        mainMenu.add(fileMenuItemCheck);
 
         // "show solution" button
         final JMenuItem fileMenuItemShow = new JMenuItem("Show Solution");
         fileMenuItemShow.addActionListener(e -> Main.gameBoard.showSolution());
-        fileMenu.add(fileMenuItemShow);
+        mainMenu.add(fileMenuItemShow);
 
         // "about" button
         final JMenuItem fileMenuItemAbout = new JMenuItem("About");
         fileMenuItemAbout.addActionListener(e -> JOptionPane.showMessageDialog(getInstance().gameFrame,
-                "This main.java.application was made by Cullen St. Clair.\nSudoku is a simple game, in which the objective is to fill the entire 9x9 grid with the numbers 1-9.\nThe rules are that no number may be repeated within a row or column, or within a sub-grid of 3x3 squares.\nThis program generates new puzzles automatically.\nThere are 3 difficulty levels to chose from which determine how many starting squares are filled in for you.\nHave fun!",
+                "This java application was made by Cullen St. Clair.\nSudoku is a simple game, in which the objective is to fill the entire 9x9 grid with the numbers 1-9.\nThe rules are that no number may be repeated within a row or column, or within a sub-grid of 3x3 squares.\nThis program generates new puzzles automatically.\nThere are 3 difficulty levels to chose from which determine how many starting squares are filled in for you.\nHave fun!",
                 "About Sudoku", JOptionPane.PLAIN_MESSAGE));
-        fileMenu.add(fileMenuItemAbout);
+        mainMenu.add(fileMenuItemAbout);
 
-        return fileMenu;
+        return mainMenu;
     }
 
     /**

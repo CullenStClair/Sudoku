@@ -14,7 +14,7 @@ import java.util.Random;
  *
  * @author Cullen St. Clair
  */
-public final class SudokuGenerator {
+public class SudokuGenerator {
 
     private static int counter = 0;
     private static String[] numList = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -205,7 +205,7 @@ public final class SudokuGenerator {
         switch (difficulty) {
             // easy
             case 1:
-                tries = 6;
+                tries = 3;
                 break;
             // normal
             case 2:

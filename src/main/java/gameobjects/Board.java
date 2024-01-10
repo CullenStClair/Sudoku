@@ -11,9 +11,9 @@ import java.util.Arrays;
  *
  * @author Cullen St. Clair
  */
-public final class Board {
+public class Board {
 
-    private final Tile[][] tileGrid = new Tile[9][9];
+    private final Tile[][] tileGrid = new Tile[Main.GRID_SIZE][Main.GRID_SIZE];
     private SudokuPuzzle currentPuzzle = null;
     public final static String[][] defaultGrid = {{"-", "-", "-", "-", "-", "-", "-", "-", "-"},
             {"-", "-", "-", "-", "-", "-", "-", "-", "-"}, {"-", "-", "-", "-", "-", "-", "-", "-", "-"},
@@ -46,7 +46,7 @@ public final class Board {
         currentPuzzle = SudokuGenerator.generateNew(difficulty);
         for (int i = 0; i < Main.GRID_SIZE; i++) {
             for (int j = 0; j < Main.GRID_SIZE; j++) {
-                tileGrid[i][j].setTileValue(currentPuzzle.initial[i][j]);
+                tileGrid[i][j].setTileValue(currentPuzzle.initial()[i][j]);
                 tileGrid[i][j].getTileButton().setEnabled("-".equals(tileGrid[i][j].getTileValue()));
             }
         }
@@ -79,7 +79,7 @@ public final class Board {
         }
 
         // compare the arrays
-        if (Arrays.deepEquals(gridValues, currentPuzzle.solution)) {
+        if (Arrays.deepEquals(gridValues, currentPuzzle.solution())) {
             GameGUI.getInstance().alertSolved();
         } else {
             GameGUI.getInstance().alertUnsolved();
@@ -100,7 +100,7 @@ public final class Board {
         for (int i = 0; i < Main.GRID_SIZE; i++) {
             for (int j = 0; j < Main.GRID_SIZE; j++) {
                 // update board
-                tileGrid[i][j].setTileValue(currentPuzzle.solution[i][j]);
+                tileGrid[i][j].setTileValue(currentPuzzle.solution()[i][j]);
                 tileGrid[i][j].getTileButton().setEnabled(false);
             }
         }

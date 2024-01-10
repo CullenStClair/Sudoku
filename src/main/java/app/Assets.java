@@ -8,24 +8,47 @@ import java.util.Objects;
  *
  * @author Cullen St. Clair
  */
-public final class Assets {
+public class Assets {
 
-    public final Icon img1, img2, img3, img4, img5, img6, img7, img8, img9, blank, background;
+    private static Assets instance;
+    private final Icon[] icons;
 
-    public Assets() {
+    private Assets() {
+
+        icons = new Icon[11];
 
         // load images from assets
-        img1 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/1.png")));
-        img2 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/2.png")));
-        img3 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/3.png")));
-        img5 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/5.png")));
-        img4 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/4.png")));
-        img6 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/6.png")));
-        img7 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/7.png")));
-        img8 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/8.png")));
-        img9 = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/9.png")));
-        blank = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/blank.png")));
-        background = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/background.png")));
+        icons[0] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/1.png")));
+        icons[1] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/2.png")));
+        icons[2] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/3.png")));
+        icons[3] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/5.png")));
+        icons[4] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/4.png")));
+        icons[5] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/6.png")));
+        icons[6] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/7.png")));
+        icons[7] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/8.png")));
+        icons[8] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/9.png")));
+        icons[9] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/blank.png")));
+        icons[10] = new ImageIcon(Objects.requireNonNull(getClass().getResource("/image/background.png")));
     }
 
+    public static Assets getInstance() {
+        if (instance == null) {
+            instance = new Assets();
+        }
+        return instance;
+    }
+
+    public Icon getIcon(String id) {
+        int index;
+        try {
+            index = Integer.parseInt(id) - 1;
+        } catch (NumberFormatException e) {
+            index = switch (id) {
+                case "-", "blank" -> 9;
+                case "background" -> 10;
+                case null, default -> throw new IllegalArgumentException("no corresponding icon \"" + id + "\"");
+            };
+        }
+        return icons[index];
+    }
 }

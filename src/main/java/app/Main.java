@@ -6,9 +6,7 @@ import gameobjects.Tile;
 
 public class Main {
 
-    public final static int GRID_SIZE = 9;
-
-    public final static Assets imageAssets = new Assets();
+    public final static int GRID_SIZE = 9; // does not currently work with any other board size
     public final static Board gameBoard = new Board();
 
     /**
