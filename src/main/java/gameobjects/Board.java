@@ -1,8 +1,8 @@
-package main.java.gameobjects;
+package gameobjects;
 
-import main.java.app.GameGUI;
-import main.java.app.Main;
-import main.java.app.SudokuGenerator;
+import app.GameGUI;
+import app.Main;
+import app.SudokuGenerator;
 
 import java.util.Arrays;
 

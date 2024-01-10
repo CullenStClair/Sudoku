@@ -1,7 +1,8 @@
-package main.java.app;
+package app;
 
-import main.java.gameobjects.Board;
-import main.java.gameobjects.Tile;
+import gameobjects.Board;
+import gameobjects.Tile;
+
 
 public class Main {
 

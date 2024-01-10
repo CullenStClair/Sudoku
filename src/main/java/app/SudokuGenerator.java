@@ -1,7 +1,7 @@
-package main.java.app;
+package app;
 
-import main.java.gameobjects.Board;
-import main.java.gameobjects.SudokuPuzzle;
+import gameobjects.Board;
+import gameobjects.SudokuPuzzle;
 
 import java.util.ArrayList;
 import java.util.Arrays;

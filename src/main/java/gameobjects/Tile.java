@@ -1,7 +1,7 @@
-package main.java.gameobjects;
+package gameobjects;
 
-import main.java.app.GameGUI;
-import main.java.app.Main;
+import app.GameGUI;
+import app.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,7 +18,7 @@ public final class Tile {
     private String value = "-";
 
     public Tile() {
-        
+
         // create tile button
         tileButton = new JButton();
         tileButton.setIcon(Main.imageAssets.blank);

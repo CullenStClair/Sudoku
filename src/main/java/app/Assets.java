@@ -1,4 +1,4 @@
-package main.java.app;
+package app;
 
 import javax.swing.*;
 import java.util.Objects;
