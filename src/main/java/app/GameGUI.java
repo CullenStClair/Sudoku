@@ -1,5 +1,7 @@
 package app;
 
+import com.formdev.flatlaf.FlatLightLaf;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -12,16 +14,23 @@ public class GameGUI {
 
     private static GameGUI instance;
     private final JFrame gameFrame;
-    private final static int SIDE_LENGTH = 900;
+    public final static int SIDE_LENGTH = 900;
 
     private GameGUI() {
+
+        // set FlatLaf theme
+        try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+        } catch (Exception e) {
+            System.err.println("Failed to initialize LaF");
+        }
 
         // create main window
         gameFrame = new JFrame("Sudoku");
         gameFrame.setSize(SIDE_LENGTH, SIDE_LENGTH);
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         gameFrame.setResizable(false);
-        gameFrame.setContentPane(new JLabel(Assets.getInstance().getIcon("background")));
+        gameFrame.setContentPane(new JLabel());
 
         // add menu bar and items
         final JMenuBar menuBar = new JMenuBar();

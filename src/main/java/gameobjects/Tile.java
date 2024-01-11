@@ -2,6 +2,7 @@ package gameobjects;
 
 import app.Assets;
 import app.GameGUI;
+import app.Main;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,12 +17,13 @@ public class Tile {
     private final JButton tileButton;
 
     private String value = "-";
+    private final int buttonSize = GameGUI.SIDE_LENGTH / Main.GRID_SIZE;
 
     public Tile() {
 
         // create tile button
         tileButton = new JButton();
-        tileButton.setIcon(Assets.getInstance().getIcon("blank"));
+        tileButton.setIcon(Assets.getIcon("blank", buttonSize, buttonSize));
         tileButton.setBackground(Color.WHITE);
         tileButton.setFont(new Font("Calibri", Font.PLAIN, 60));
         tileButton.setEnabled(false);
@@ -61,7 +63,7 @@ public class Tile {
      * @param val New tile value.
      */
     public void setTileValue(String val) {
-        tileButton.setIcon(Assets.getInstance().getIcon(val));
+        tileButton.setIcon(Assets.getIcon(val, buttonSize, buttonSize));
         this.value = val;
     }
 
