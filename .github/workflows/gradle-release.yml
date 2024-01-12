@@ -10,9 +10,7 @@ jobs:
   build-and-release:
 
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
+    permissions: write-all
 
     steps:
     - name: Checkout project sources
@@ -44,5 +42,15 @@ jobs:
         files: '**/Sudoku.jar'
         fail_on_unmatched_files: true
         generate_release_notes: true
-        
+
+#    - name: Create new release
+#      env:
+#        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#      run: >-
+#        gh release create ${{ github.ref_name }}
+#        "Sudoku.jar#Executable JAR"
+#        --generate-notes
+#        --title "Version ${{ github.ref_name }} (or some other name)"
+
+
       
