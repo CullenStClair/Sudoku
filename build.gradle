@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'application'
 }
 
 repositories {
@@ -8,4 +8,23 @@ repositories {
 
 dependencies {
     implementation 'com.formdev:flatlaf:3.0'
+}
+
+application {
+    mainClass = 'sudoku.Main'
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(16))
+    }
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'sudoku.Main'
+    }
+    from {
+        configurations.compileClasspath.filter { it.exists() }.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
