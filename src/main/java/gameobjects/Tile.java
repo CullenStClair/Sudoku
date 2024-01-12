@@ -1,8 +1,8 @@
 package gameobjects;
 
-import app.Assets;
-import app.GameGUI;
-import app.Main;
+import sudoku.Assets;
+import sudoku.GameGUI;
+import sudoku.Main;
 
 import javax.swing.*;
 import java.awt.*;

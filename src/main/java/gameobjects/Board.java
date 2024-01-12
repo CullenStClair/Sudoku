@@ -1,8 +1,8 @@
 package gameobjects;
 
-import app.GameGUI;
-import app.Main;
-import app.SudokuGenerator;
+import sudoku.GameGUI;
+import sudoku.Main;
+import sudoku.SudokuGenerator;
 
 import java.util.Arrays;
 

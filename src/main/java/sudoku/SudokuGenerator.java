@@ -1,4 +1,4 @@
-package app;
+package sudoku;
 
 import gameobjects.Board;
 import gameobjects.SudokuPuzzle;

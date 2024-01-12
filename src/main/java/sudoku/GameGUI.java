@@ -1,4 +1,4 @@
-package app;
+package sudoku;
 
 import com.formdev.flatlaf.FlatLightLaf;
 
