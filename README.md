@@ -4,7 +4,7 @@
 [![CD Release](https://github.com/CullenStClair/Sudoku/actions/workflows/gradle-release.yml/badge.svg)](https://github.com/CullenStClair/Sudoku/actions/workflows/gradle-release.yml)
 
 A basic implementation of Sudoku with the ability to generate puzzles at three difficulty levels.  
-Built in Java with Swing and AWT as a high school project, and slightly refreshed for GitHub release.
+Built in Java with Swing and AWT, and slightly refreshed from an archived state for GitHub release.
 
 ## Download and Play Locally
 
